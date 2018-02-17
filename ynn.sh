@@ -87,8 +87,7 @@ sleep 3
 echo "[!]Testing the connection and showing your new ip"
 echo ""
 sleep 3
-ipnt=$(curl ident.me)
+xterm -hold -e 'ipnt=$(curl ident.me) && echo "Your Ip Is $ipnt"'
 echo ""
 echo ""
-echo "Your ip is $ipnt"
 echo ""
