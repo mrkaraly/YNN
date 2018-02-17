@@ -45,9 +45,31 @@ echo ""
 sleep 3
 echo "[!]Configuring the proxy"
 sleep 3
-export http_proxy="http://localhost:8118"
-export https_proxy="http://localhost:8118"
-export socks_proxy="http://localhost:9050"
+echo '[!]Adding the export lines to bash.bashrc file'
+sleep 3
+string2="http://localhost:8118"
+serchs1="/etc/bash.bashrc"
+if grep -q $string2 $serchs1;then
+        echo "The lines already there :3."
+else
+        echo 'export http_proxy="http://localhost:8118"' >> /etc/bash.bashrc 
+        echo 'export https_proxy="http://localhost:8118"' >> /etc/bash.bashrc
+        echo 'export socks_proxy="http://localhost:9050"' >> /etc/bash.bashrc
+
+fi
+sleep 3
+echo '[!]Adding the export lines to profile file'
+sleep 3
+string3="http://localhost:8118"
+serchs2="/etc/profile"
+if grep -q $string3 $serchs2;then
+        echo "The lines already there :3."
+else
+        echo 'export http_proxy="http://localhost:8118"' >> /etc/profile
+        echo 'export https_proxy="http://localhost:8118"' >> /etc/profile
+        echo 'export socks_proxy="http://localhost:9050"' >> /etc/profile
+
+fi
 sleep 3
 echo ""
 echo ""
@@ -61,6 +83,7 @@ echo ""
 echo "[+]Services have been started"
 echo ""
 sleep 3
+/usr/bin/clear
 echo "[!]Testing the connection and showing your new ip"
 echo ""
 sleep 3
