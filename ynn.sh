@@ -18,7 +18,7 @@ BANNER
 echo ""
 echo ""
 echo "[!]Updating the repositories && Downloading requirements"
-#sudo apt-get update
+sudo apt-get update
 sleep 2
 sudo apt-get install tor && sudo apt-get install privoxy
 sleep 3
