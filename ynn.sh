@@ -71,6 +71,15 @@ else
 
 fi
 sleep 3
+echo '[!] Changing gnome proxy settings'
+gsettings set org.gnome.system.proxy.http host '127.0.0.1'
+gsettings set org.gnome.system.proxy.http port 8118
+gsettings set org.gnome.system.proxy.https host '127.0.0.1'
+gsettings set org.gnome.system.proxy.https port 8118
+gsettings set org.gnome.system.proxy.socks host '127.0.0.1'
+gsettings set org.gnome.system.proxy.socks port 9050
+gsettings set org.gnome.system.proxy mode 'manual'
+sleep 3
 echo ""
 echo ""
 echo "[+]The proxy have been configured"
@@ -83,6 +92,24 @@ echo ""
 echo "[+]Services have been started"
 echo ""
 sleep 3
+check_s() {
+string4="privoxy"
+serchs3="/root/.bashrc"
+if grep -q $string4 $serchs3;then
+        echo "The lines already there :3."
+else
+        echo -e "alias ynn='service tor start && service privoxy start'" >> /root/.bashrc
+fi
+}
+while true;do
+        read -p "[?] Do you want to add the ynn command to start the services with it?" yn
+        case $yn in
+                [Yy]* ) check_s; break;;
+                [Nn]* ) break;;
+                * ) echo "Please choose yes or no";;
+        esac
+done
+sleep 10
 /usr/bin/clear
 echo "[!]Testing the connection and showing your new ip"
 echo ""
@@ -91,3 +118,7 @@ xterm -hold -e 'ipnt=$(curl ident.me) && echo "Your Ip Is $ipnt"'
 echo ""
 echo ""
 echo ""
+echo "Type ynn in the terminal to start the services"
+echo "Thanks for using the script , Good Luck!"
+echo ""
+sleep 5
