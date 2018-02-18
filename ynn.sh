@@ -122,3 +122,4 @@ echo "Type ynn in the terminal to start the services"
 echo "Thanks for using the script , Good Luck!"
 echo ""
 sleep 5
+/usr/bin/clear
