@@ -7,6 +7,9 @@ sed -i "/forward-socks4 \/ localhost:9050 ./d" /etc/privoxy/config
 sed -i "/forward-socks4a \/ localhost:9050 ./d" /etc/privoxy/config
 sleep 3
 echo "[:(] Disable the proxy settings"
+unset http_proxy
+unset https_proxy
+unset socks_proxy
 sleep 3
 echo "[:(] Removing the export lines from bash.bashrc file"
 sleep 2
