@@ -35,6 +35,9 @@ else
         echo "forward-socks5 / localhost:9050 ." >> /etc/privoxy/config
         echo "forward-socks4 / localhost:9050 ." >> /etc/privoxy/config
         echo "forward-socks4a / localhost:9050 ." >> /etc/privoxy/config
+	echo "forward-socks5 / 127.0.0.1:9050 ." >> /etc/privoxy/config
+        echo "forward-socks4 / 127.0.0.1:9050 ." >> /etc/privoxy/config
+        echo "forward-socks4a / 127.0.0.1:9050 ." >> /etc/privoxy/config
 	sleep 3
 	echo "[+]The lines have been added"
 fi
